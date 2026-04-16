@@ -12,7 +12,7 @@ router.get('/classify',async(req , res)=>{
     if (validationError) {
         return res.status(validationError.statusCode).json({
             status: 'error',
-            message: 'validation has failed message',
+            message: validationError.message,
         });
 
     }
@@ -31,7 +31,7 @@ router.get('/classify',async(req , res)=>{
     if (!apiData.gender || apiData.count === 0 ){
          return res.status(404).json({
              status: 'error',
-             data: 'no prediction available for the provided name',
+             message: 'No prediction available for the provided name',
              })    
          }
 const processed = processingGenderData(name, apiData);

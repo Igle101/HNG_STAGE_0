@@ -5,6 +5,7 @@ function processingGenderData( name, apiData){
 
     const sample_size  = count
     const is_confident= probability >= 0.7 && sample_size >=100;
+    
     const processed_at = new Date().toISOString();
 
     return{
